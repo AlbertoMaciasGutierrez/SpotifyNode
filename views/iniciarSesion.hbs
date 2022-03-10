@@ -1,0 +1,33 @@
+<div class="container-fluid">
+    <br><br>
+    <div class="row justify-content-around">
+        <div class ="col-md-4 col-sm-6">
+            <div class="card bg-light mb-3" style="max-width: 25rem;">
+                <div class="card-header font-weight-normal">Iniciar Sesión</div>
+                
+                <div class="card-body">
+                    <form class="form-signin" action="/iniciarSesion" method="POST">
+                        <br>
+                        <div class="form-floating">
+                            <label for="inputEmail" class="sr-only">name@example.com</label>
+                            <input type="email" name="falseEmail" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                        </div>
+                        <br>
+                        <div class="form-floating">
+                            <label for="inputPassword" class="sr-only">Password</label>
+                            <input type="password" name="falsePass" id="inputPassword" class="form-control" placeholder="Password" required>
+                        </div>
+                        <br>
+                        <div class="checkbox mb-3">
+                            <label>
+                                <input type="checkbox" value="remember-me"> Recuerdame
+                            </label>
+                        </div>
+                                    
+                        <button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar Sesión</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
