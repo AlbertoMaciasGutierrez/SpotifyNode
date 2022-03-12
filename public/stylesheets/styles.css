@@ -1,16 +1,35 @@
-body{
-    background-image: url("/images/background.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100%;
+body {
+  background-image: url("/images/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
   /* Center and scale the image nicely */
-    background-position: center center;
-    background-attachment: fixed;
-    position: relative;
-    
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+footer {
+  color: white;
+  background-color: #1A1A1A;
+  width: 100%;
+  position: relative;
+  bottom: 0;
+  left: 0;
+}
+
+.footer-1 {
+  color: white;
+  width: 100%;
+  background-color: #1A1A1A;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 
 
 
+body .jumbotron {
+  padding: 2rem 2rem;
+}
 
-  
+

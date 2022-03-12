@@ -1,21 +1,61 @@
 <section class="jumbotron text-center border-bottom-dark rounded-0" style="background-color: #2da852d3;" >
-    <div class="container">
-      <div class="row justify-content-around text-center">
-        <div class="col-md-8 col-sm-12">
-          <h2 class="jumbotron-heading font-weinght-bold">Artistas y grupos aleatorios.</h2>
-          <p>Â¡Creemos que estos artistas o grupos te pueden a gustar!</p>
+      <div class="container">
+        <div class="row justify-content-around text-center">
+          <div class="col-md-8 col-sm-12">
+            <h2 class="jumbotron-heading font-weinght-bold">Artistas y grupos aleatorios.</h2>
+            <p>¡Creemos que estos artistas o grupos te pueden a gustar!</p>
+          </div>
         </div>
       </div>
-    </div>
-</section>
+  </section>
 
-  <div class="album py-5 ">
-    <div class="container-fluid">
-      <div class="row justify-content-around">
-        {{#each artistas}}
-            {{>artistasCard this }}
-        {{/each}}
-        
-      </div>
+<div class="album py-5 ">
+  <div class="container-fluid">
+    <div class="row">
+      {{#each artistas}}
+        {{>artistasCard this }}
+      {{/each}}
     </div>
   </div>
+  
+</div>
+
+<footer class="py-4 bg-dark">
+      <div class="container-fluid">
+          <div class="d-flex row justify-content-around text-center">
+            <div class="col-md-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="d-block mb-2"><circle cx="12" cy="12" r="10"></circle><line x1="14.31" y1="8" x2="20.05" y2="17.94"></line><line x1="9.69" y1="8" x2="21.17" y2="8"></line><line x1="7.38" y1="12" x2="13.12" y2="2.06"></line><line x1="9.69" y1="16" x2="3.95" y2="6.06"></line><line x1="14.31" y1="16" x2="2.83" y2="16"></line><line x1="16.62" y1="12" x2="10.88" y2="21.94"></line></svg>
+                <small class="d-block mb-3 text-muted">&copy; 2017-2018</small>
+            </div>
+
+            <div class="col-md-2">
+            <h5>Resources</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class="text-muted" href="#">Resource</a></li>
+                    <li><a class="text-muted" href="#">Resource name</a></li>
+                    <li><a class="text-muted" href="#">Another resource</a></li>
+                    <li><a class="text-muted" href="#">Final resource</a></li>
+                </ul>
+            </div>
+            <div class="col-md-2">
+                <h5>Resources</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class="text-muted" href="#">Business</a></li>
+                    <li><a class="text-muted" href="#">Education</a></li>
+                    <li><a class="text-muted" href="#">Government</a></li>
+                    <li><a class="text-muted" href="#">Gaming</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-2">
+                <h5>About</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class="text-muted" href="#">Team</a></li>
+                    <li><a class="text-muted" href="#">Locations</a></li>
+                    <li><a class="text-muted" href="#">Privacy</a></li>
+                    <li><a class="text-muted" href="#">Terms</a></li>
+                </ul>
+            </div>
+          </div>
+     </div>
+</footer>

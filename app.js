@@ -153,7 +153,7 @@ app.get("/books/:bookId", (req, res, next) => {
 
 app.get("/artistasAleatorios", (req, res, next) => {
   let busquedaAleatoria = getRandomSearch();
-  console.log(busquedaAleatoria);
+  //console.log(busquedaAleatoria);
 
   spotifyApi.searchArtists(busquedaAleatoria, { limit: 50, offset: 50 }).then(
     function (data) {
@@ -169,17 +169,50 @@ app.get("/artistasAleatorios", (req, res, next) => {
 app.get("/artista", (req, res, next) => {
   let artista = req.query.search;
 
-  console.log(artista);
+  //console.log(artista);
 
   spotifyApi.searchArtists(artista).then(
     function (data) {
       let artistas = data.body.artists.items;
-      res.render("artistas", { artistas });
+      res.render("artista", { artistas,artista });
     },
     function (err) {
       console.error(err);
     }
   );
+});
+
+app.get("/artista/:artistaId", (req, res, next) => {
+  let artistaSelecionado = req.params.artistaId;
+  console.log(req.params.artistaId);
+  
+  spotifyApi.getArtist(artistaSelecionado)
+  .then(function(data) {
+    //console.log('Artist information', data.body);
+    let artista = data.body;
+
+    spotifyApi.getArtistTopTracks(artistaSelecionado, 'GB')
+    .then(function(data) {
+    //console.log(data.body);
+    let topCanciones = data.body.tracks;
+    res.render('artistaInfo', { artista,topCanciones });
+    
+    spotifyApi.getArtistAlbums(artistaSelecionado,{ limit: 5, offset: 5 })
+    .then(function(data) {
+    console.log('Artist albums', data.body);
+    }, function(err) {
+    console.error(err);
+    });
+
+    }, function(err) {
+    console.log('Something went wrong!', err);
+  });
+
+
+
+  }, function(err) {
+    console.error(err);
+  });
 });
 
 app.get("/*", (request, response, next) => {

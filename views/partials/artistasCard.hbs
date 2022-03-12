@@ -12,9 +12,11 @@
         <h4 class="card-text">{{this.name}}</h4>
         <h6 class="font-weight-light font-italic">Seguidores: {{this.followers.total}}</h6>
       <br>
-      <div class="d-flex justify-content-center">
-        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-      </div>
-      </div>
+      <form class="form-inline justify-content-center" action="/artista/{{this.id}}" method="GET">
+        <div class="d-flex justify-content-center">
+          <button type="submit" class="btn btn-sm btn-outline-secondary">View</button>
+        </div>
+      </form>
+    </div>
   </div>
 </div>
