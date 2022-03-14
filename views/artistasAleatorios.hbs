@@ -1,0 +1,22 @@
+<section class="jumbotron text-center border-bottom-dark rounded-0" style="background-color: #2da852d3;" >
+      <div class="container">
+        <div class="row justify-content-around text-center">
+          <div class="col-md-8 col-sm-12">
+            <h2 class="jumbotron-heading font-weinght-bold">Artistas y grupos aleatorios.</h2>
+            <p>¡Creemos que estos artistas o grupos te pueden a gustar!</p>
+          </div>
+        </div>
+      </div>
+</section>  
+
+<div class="album py-5 ">
+  <div class="container-fluid">
+    <div class="row">
+      {{#each artistas}}
+        {{>artistasCard this }}
+      {{/each}}
+    </div>
+  </div>
+  
+</div>
+

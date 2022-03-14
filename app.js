@@ -82,7 +82,8 @@ const getMe = () => {
   //console.log(`bilgiler`, artists.body.artists.items[0]);
 };*/
 
-//---------------------BUSQUEDA ALEATORIA-------------------------------------// https://perryjanssen.medium.com/getting-random-tracks-using-the-spotify-api-61889b0c0c27
+//---------------------BUSQUEDA ALEATORIA-------------------------------------// 
+// https://perryjanssen.medium.com/getting-random-tracks-using-the-spotify-api-61889b0c0c27
 function getRandomSearch() {
   // Una lista de todos los caracteres que se pueden elegir
   const characters = "abcdefghijklmnopqrstuvwxyz";
@@ -162,7 +163,7 @@ app.get("/artistasAleatorios", (req, res, next) => {
   spotifyApi.searchArtists(busquedaAleatoria, { limit: 50, offset: 50 }).then(
     function (data) {
       let artistas = data.body.artists.items;
-      res.render("artistas", { artistas });
+      res.render("artistasAleatorios", { artistas });
     },
     function (err) {
       console.error(err);
@@ -178,7 +179,7 @@ app.get("/artista", (req, res, next) => {
   spotifyApi.searchArtists(artista).then(
     function (data) {
       let artistas = data.body.artists.items;
-      res.render("artista", { artistas,artista });
+      res.render("artistaBusqueda", { artistas, artista });
     },
     function (err) {
       console.error(err);
