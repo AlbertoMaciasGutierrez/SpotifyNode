@@ -6,6 +6,7 @@ const hbs = require("hbs");
 const path = require("path");
 const bodyParser = require("body-parser");
 var SpotifyWebApi = require("spotify-web-api-node");
+var inicioSesionIncorrecto = false;
 
 app.set("views", __dirname + "/views");
 app.set("view engine", "hbs");
@@ -111,7 +112,8 @@ app.get("/", (req, res, next) => {
 });
 
 app.get("/iniciarSesion", (req, res, next) => {
-  res.render("iniciarSesion");
+  inicioSesionIncorrecto = false
+  res.render("iniciarSesion",{inicioSesionIncorrecto});
 });
 
 app.post("/iniciarSesion", (req, res, next) => {
@@ -123,6 +125,8 @@ app.post("/iniciarSesion", (req, res, next) => {
     res.render("index");
   } else {
     console.log("ERROR: NO ha iniciado sesion correctamente");
+    inicioSesionIncorrecto = true;
+    res.render("iniciarSesion",{inicioSesionIncorrecto});
   }
 });
 

@@ -23,6 +23,10 @@
                                 <input type="checkbox" value="remember-me"> Recuerdame
                             </label>
                         </div>
+                        
+                        {{#if inicioSesionIncorrecto}}
+                            <p aria-atomic="true" style="color: #ff0000;" >Usuario o contraseña incorrectos</p>
+                        {{/if}}
 
                         <button class="btn btn-md btn-primary btn-block" type="submit">Iniciar Sesión</button>
                     </form>
