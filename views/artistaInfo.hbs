@@ -1,17 +1,77 @@
-<section class="jumbotron text-center border-bottom-dark rounded-0" style="background-color: #2da852d3;" >
-      <div class="container">
-        <div class="row justify-content-around text-center">
-          <div class="col-md-8 col-sm-12">
-            <h2 class="jumbotron-heading font-weinght-bold">Artista/Grupo: {{artista.name}}</h2>
-          </div>
-        </div>
-      </div>
-</section>
+<div class="container-fluid ">
+    <div class="row d-flex justify-content-between p-4 mt-5 mr-2 ml-2 mb-4" style="background-color: #161616">
 
-<div class ="border bg-warning p-5 mt-4 ml-5 mr-5">
-    {{#each topCanciones}}
-        <li>{{this.name}}</li>
-    {{/each}}
-    <h5>Artista {{artista.name}}</h5>
+        <div class="col-md-6 col-xl-6 col-sm-6">
+            <div class="row d-flex justify-content-between">
+                
+                    {{#each artista.images}}
+                        
+                        {{#if @first}}
+                            
+                            <img class="card-img-top rounded-circle" style="max-width:20rem" src ="{{this.url}}">
+                        
+                        {{/if}}
+                        
+                    {{/each}}
+                
+                <div class="card-body text-center" style="color:white">
+                    <h3 class="card-text font-weinght-bold"> {{artista.name}} </p>
+                    </h5>
+                    <h5 class="card-text font-weinght-bold">Seguidores: <p class="font-italic"> {{artista.followers.total}} </p>
+                    </h5>
+
+                    <h5 class="card-text font-weinght-bold">
+                        Popularidad: <p class="font-italic"> {{artista.popularity}} </p>
+                    </h5>
+                    <br>
+                    <a type="button" class="btn btn-success"  target="_blank" href="{{artista.external_urls.spotify}}">
+                        Spotify de {{artista.name}}
+                    </a>            
+                </div>
+
+            </div>
+            <div class="row d-flex justify-content-start my-4">
+                <table class="table table-dark text-center" style="max-width: 50rem;">
+                    <thead class="table-success">
+                        <tr>
+                            <th scope="col" style="font-size: large; color:black">Canciones más escuchadas</th>
+                            <th scope="col" style="font-size: large; color:black">Escucha la canción</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-center">
+                        {{#each topCanciones}}
+                            <tr>
+                                <th scope="row" style="font-size: small; font-style:italic; color:gray">
+                                    {{this.name}}
+                                     
+                                </th>
+
+                                <th > <audio controls="" name="media" style="height:35px; width: 230px;">
+                                <source src="{{this.preview_url}}" type="audio/mp3"  />
+                                  </audio> </th>
+                            </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+                
+            </div>
+            
+        </div>
+
+        <div class="col-md-6 col-xl-6 col-sm-6">
+            <div class="row d-flex justify-content-center">
+                <h3 class="card-text font-weinght-bold mt-3 mb-4" style="color: white;">
+                    <p class="">Albúms de {{artista.name}}</p> 
+                </h3>
+            </div>
+            <div class="row d-flex justify-content-center">
+  
+                {{#each albumes}}
+                    {{>albumCard this }}
+                {{/each}}
+            </div>
+            
+        </div>
+    </div>
 </div>
 

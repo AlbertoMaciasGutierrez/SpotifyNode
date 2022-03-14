@@ -1,0 +1,19 @@
+<div class="d-flex justify-content-center col-md-8 col-sm-10 col-lg-6 col-xl-4">
+    <div class="card mb-4" style="max-width: 15rem; min-width: 8rem;">
+        {{#each this.images}}
+            {{#if @first}}
+
+                <img class="card-img-top" src ="{{this.url}}">
+
+            {{/if}}
+        {{/each}}
+
+        <div class="card-body text-center">
+            <h5 class="card-text">{{this.name}}</h5>
+            <h6 class="font-weight-light font-italic">Fecha: {{this.release_date}}</h6>
+                <div class="d-flex justify-content-center">
+                    <a class="btn btn-outline-secondary btn-sm" target="_blank" href="{{this.external_urls.spotify}}">Ver Albúm</a>
+                </div>
+        </div>
+    </div>
+</div>

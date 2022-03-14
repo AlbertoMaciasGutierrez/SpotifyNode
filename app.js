@@ -74,14 +74,6 @@ const getMe = () => {
   );
 };
 
-//getMe() 31wq7myc3b4h3d5cdvetpvnelt3y
-
-/*const searchArtist = async () => {
-  const artists = await spotifyApi.searchArtists("Extremo");
-  //console.log("artist", artists);
-  //console.log(`bilgiler`, artists.body.artists.items[0]);
-};*/
-
 //---------------------BUSQUEDA ALEATORIA-------------------------------------// 
 // https://perryjanssen.medium.com/getting-random-tracks-using-the-spotify-api-61889b0c0c27
 function getRandomSearch() {
@@ -131,6 +123,8 @@ app.post("/iniciarSesion", (req, res, next) => {
   }
 });
 
+
+//---------------------MIDDLEWARE-------------------------------------// 
 /*
 app.use(fakeLogin);
 
@@ -147,14 +141,7 @@ function fakeLogin(req, res, next){
   }
   next();
 }*/
-
-app.get("/users/:username", (req, res) => {
-  res.send(req.params);
-});
-
-app.get("/books/:bookId", (req, res, next) => {
-  res.send(req.params);
-});
+//---------------------------------------------------------------------------------//
 
 app.get("/artistasAleatorios", (req, res, next) => {
   let busquedaAleatoria = getRandomSearch();
@@ -193,18 +180,17 @@ app.get("/artista/:artistaId", (req, res, next) => {
   
   spotifyApi.getArtist(artistaSelecionado)
   .then(function(data) {
-    //console.log('Artist information', data.body);
     let artista = data.body;
 
     spotifyApi.getArtistTopTracks(artistaSelecionado, 'GB')
     .then(function(data) {
-    //console.log(data.body);
     let topCanciones = data.body.tracks;
-    res.render('artistaInfo', { artista,topCanciones });
+
     
-    spotifyApi.getArtistAlbums(artistaSelecionado,{ limit: 5, offset: 5 })
+    spotifyApi.getArtistAlbums(artistaSelecionado,{ limit: 6, offset: 6 })
     .then(function(data) {
-    console.log('Artist albums', data.body);
+    let albumes = data.body.items;
+    res.render('artistaInfo', { artista,topCanciones,albumes });
     }, function(err) {
     console.error(err);
     });
@@ -220,6 +206,10 @@ app.get("/artista/:artistaId", (req, res, next) => {
   });
 });
 
+app.get("/contacto", (request, response, next) => {
+  response.render("contacto");
+});
+
 app.get("/*", (request, response, next) => {
   let dataNotFound = {
     notFoundImage:
@@ -227,5 +217,7 @@ app.get("/*", (request, response, next) => {
   };
   response.render("404", dataNotFound);
 });
+
+
 
 app.listen(3000, () => console.log("App listening on port 3000!"));
