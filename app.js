@@ -181,8 +181,7 @@ app.get("/artista/:artistaId", (req, res, next) => {
   spotifyApi.getArtist(artistaSelecionado)
   .then(function(data) {
     let artista = data.body;
-
-    spotifyApi.getArtistTopTracks(artistaSelecionado, 'GB')
+    spotifyApi.getArtistTopTracks(artistaSelecionado, 'ES')
     .then(function(data) {
     let topCanciones = data.body.tracks;
 

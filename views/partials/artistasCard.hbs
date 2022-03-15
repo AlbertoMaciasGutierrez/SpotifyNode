@@ -1,13 +1,14 @@
-<div class="col-xl-2 col-lg-3 col-md-4">
+
+  <div class="col-xl-2 col-lg-3 col-md-4">
   <div class="card m-4">
-    <div class="card">
       {{#each this.images}}
         {{#if @first}}
           <img class="card-img-top" 
-            src ="{{this.url}}">
+            src ="{{this.url}}" >
         {{/if}}
       {{/each}}
-    </div>
+      
+    
     <div class="card-body text-center">
         <h4 class="card-text">{{this.name}}</h4>
         <h6 class="font-weight-light font-italic">Seguidores: {{this.followers.total}}</h6>
@@ -20,3 +21,4 @@
     </div>
   </div>
 </div>
+
